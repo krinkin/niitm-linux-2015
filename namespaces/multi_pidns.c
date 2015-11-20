@@ -41,6 +41,8 @@ childFunc(void *arg)
     static int first_call = 1;
     long level = (long) arg;
 
+		printf("Pid=%d\n",getpid());
+
     if (!first_call) {
 
         /* Unless this is the first recursive call to childFunc()
@@ -83,8 +85,7 @@ childFunc(void *arg)
         /* Tail end of recursion: execute sleep(1) */
 
         printf("Final child sleeping\n");
-        execlp("sleep", "sleep", "1000", (char *) NULL);
-        errExit("execlp");
+        	execlp("sleep", "sleep", "1000", (char *) NULL);
     }
 
     return 0;
